@@ -8,16 +8,34 @@ import edittripList from "./components/edittripList.component";
 import createTrip from "./components/createTrip.component";
 function App() {
   return (
-    <div className="App">
-    <Router>
     
+    <Router>
+      <div className="container-fluid">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+        <Link to="/" className="navbar-brand">CLick_n_Go</Link>
+        <div className="collpase nav-collapse">
+        <ul className="navbar-nav mr-auto">
+          <li className="navbar-item">
+            <Link to="/" className="nav-link">trip-list</Link>
+          </li>
+          <li className="navbar-item">
+            <Link to="/create" className="nav-link">Add new trip</Link>
+          </li>
+          <li className="navbar-item">
+            <Link to="/edit/:id" className="nav-link">Edit trip</Link>
+          </li>
+        </ul>
+        </div>
+      </nav>
+      
       <h1>heading</h1>
       <button class="btn btn-primary">click here</button>
     <Route path="/" exact component={tripList}/>
     <Route path="/edit/:id" component={edittripList}/>
     <Route path="/create" component={createTrip}/>
-    </Router>
     </div>
+    </Router>
+    
   );
 }
 
