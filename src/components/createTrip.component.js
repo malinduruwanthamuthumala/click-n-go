@@ -75,8 +75,14 @@ onSubmit(data){
 }
 render(){
     return(
-        <div>
-            <h1>Welcome to create trip component</h1>
+        <div style={{margin:20}}>
+            <h3>create new trip post</h3>
+            <form onSubmit={this.onSubmit}>
+                <div className="form-group">
+                    <label>Description:</label>
+                    <input type="text" className="form-control" value={this.state.description} onChange={this.onChangeDescription}/>
+                </div>
+            </form>
         </div>
     )
 }
