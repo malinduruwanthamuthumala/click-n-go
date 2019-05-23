@@ -4,7 +4,7 @@ const Schema=mongoose.Schema;
 let Trips = new Schema({
     description:String,
     title:String,
-    telephone:Number,
+    telephone:String,
     passengers:String,
     location:String,
     agency_name:String,
