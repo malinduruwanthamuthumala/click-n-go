@@ -49,8 +49,9 @@ tripsRoutes.route('/:id').get(function(req,res){
 tripsRoutes.route('/create').post(function(req,res){
 let trips=new Trips(req.body);
     trips.save()
-    .then(todo=>{
+    .then(trips=>{
       res.status(200).json({'trips':'trips added succesfully'});
+      
     })
     .catch(err=>{
       res.status(400).json({'trips':'adding trips failled'});
