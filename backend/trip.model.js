@@ -1,25 +1,13 @@
 const mongoose=require('mongoose');
-const schema=mongoose.schema;
+const Schema=mongoose.Schema;
 
-let Trips =new schema({
-    description:{
-        type:String
-    },
-    title:{
-        type:String
-    },
-    telephone:{
-        type=String
-    },
-    passengers:{
-        type=Number
-    },
-    location:{
-        type=String
-    },
-    agency_name:{
-        type=String
-    }
+let Trips = new Schema({
+    description:String,
+    title:String,
+    telephone:Number,
+    passengers:String,
+    location:String,
+    agency_name:String,
 })
 
 module.exports=mongoose.model('Trips',Trips);
