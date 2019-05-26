@@ -28,8 +28,7 @@ function App() {
         </div>
       </nav>
       
-      <h1>heading</h1>
-      <button class="btn btn-primary">click here</button>
+     
     <Route path="/" exact component={tripList}/>
     <Route path="/edit/:id" component={edittripList}/>
     <Route path="/create" component={createTrip}/>

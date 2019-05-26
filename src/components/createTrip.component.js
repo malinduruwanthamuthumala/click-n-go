@@ -64,7 +64,18 @@ onSubmit(data){
 
     console.log('form submitted');
     console.log('description:'+this.state.description);
-    console.log('description:${this.state.title}');
+    
+    const newTrip={
+        description:this.state.description,
+        title:this.state.title,
+        telephone:this.state.telephone,
+        passengers:this.state.passengers,
+        location:this.state.location,
+        agency_name:this.state.agency_name, 
+    }
+
+    axios.post('http://localhost:5000/trips/create',newTrip)
+        .then(res=>console.log(res.data));
     this.setState({
         description:'',
         title:'',
