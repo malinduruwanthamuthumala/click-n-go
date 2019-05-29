@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import axios from 'axios';
 
 export default class edittripList extends Component{
-constructor(){
+constructor(props){
     super(props);
     this.state={
         description:'',
@@ -24,7 +24,7 @@ componenDidMount(){
             location:response.data.location,
             agency_name:response.data.agency_name,  
         }).catch(function(error){
-            console.log(err) 
+            console.log(error) 
         })
     })
 }
