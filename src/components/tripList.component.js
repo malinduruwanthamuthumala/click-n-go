@@ -4,13 +4,14 @@ import axios from 'axios';
 
 const Trip=props=>(
     <tr>
+        <td>{props.trip._id}</td>
         <td>{props.trip.description}</td>
         <td>{props.trip.title}</td>
         <td>{props.trip.telephone}</td>
         <td>{props.trip.location}</td>
         <td>{props.trip.agency_name}</td>
         <td>
-            <Link to={"/edit/"+props.trips_id}>Edit</Link>
+            <Link to={"/edit/"+props.trip._id}>Edit</Link>
         </td>
     </tr>
 )
