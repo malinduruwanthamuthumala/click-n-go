@@ -41,7 +41,7 @@ tripsRoutes.route('/:id').get(function(req,res){
       console.log(err)
     }
     else {
-      console.log(data);
+      res.json(data)
     }
   });
 });
@@ -70,7 +70,8 @@ tripsRoutes.route('/update/:id').post(function(req,res){
       data.passengers=req.body.passengers;
       data.location=req.body.location;
       data.agency_name=req.body.agency_name;
-      data.save().then(data=>{
+      data.save()
+      .then(data=>{
         res.json('trips updated');
       })
         .catch(err=>{
