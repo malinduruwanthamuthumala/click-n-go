@@ -24,29 +24,32 @@ constructor(props){
 }
 componentDidMount(){
     console.log("working")
+    console.log('http://localhost:5000/trips/'+this.props.match.params.id)
     axios.get('http://localhost:5000/trips/'+this.props.match.params.id)
-    .then(response=>{
-        console.log(response)
-    })
     .then(response=>{
         this.setState({
             description:response.data.description,
             title:response.data.title,
             telephone:response.data.telephone,
+            agency_name:response.data.agency_name,
             passengers:response.data.passengers,
             location:response.data.location,
-            agency_name:response.data.agency_name,  
-        }).catch(function(error){
-            console.log(error) 
+
         })
+        
+    }).catch(function(error){
+        console.log(error)
     })
     
+  console.log('sdfsdf'+this.state.agency_name)  
+  console.log('sdsd')
 }
 
 onChangeDescription(data){
     
     this.setState({
-        description:data.target.value
+        description:data.target.value,
+        
     })
       
     }
@@ -82,6 +85,7 @@ onChangeDescription(data){
     }
 
 onSubmit(data){
+    
     data.preventDefault();
         const obj={
             description:this.state.description,
@@ -92,16 +96,15 @@ onSubmit(data){
             agency_name:this.state.agency_name, 
         }
         axios.post("http://localhost:5000/trips/update/"+this.props.match.params.id,obj)
-            .then(res=>{
-                console.log(res.data)
-            })
-            this.props.history.push('/')
+            .then(res=>console.log(res.data))
+        //this.props.history.push('/')
         }   
 render(){
     return(
         <div>
              <form onSubmit={this.onSubmit}>
                 <div className="form-group">
+                    <h1>fsdfsdf{this.state.description}</h1>
                     <label>Description:</label>
                     <input type="text" className="form-control"  value={this.state.description} onChange={this.onChangeDescription}/>
                 </div>
